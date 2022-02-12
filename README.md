@@ -49,10 +49,16 @@ For more information on the Facebook Messenger bot, click [here](https://develop
      - "bot-dev": "bottender dev",
      - "bot-start": "bottender start",
 
-3. Run it:
+3. Run BOT:
     on console: $ npm run bot-dev -- --console
-    on server:  $ npm run server-dev
+    on server:  $ npm run bot-dev
 
 4. Public domain & connect to webhook:
     $ ngrok.exe http 5000
     $ npx bottender messenger webhook set -w <URL_FROM_NGROK>/webhooks/messenger
+
+5. Run API Server:
+    1. $ npm run sever-dev
+    2. List of APIs and there routes:
+        1. `GET /messages` : Shows all chats
+        2. `GET /messages/{id}` : Shows chat by ID
