@@ -28,3 +28,31 @@ For more information on the Facebook Messenger bot, click [here](https://develop
      ...
     ]
     ```
+
+### RUN Project
+1. Add a file with name `.env` with following data:
+    ```json
+       MESSENGER_PAGE_ID=
+       MESSENGER_ACCESS_TOKEN=
+       MESSENGER_APP_ID=
+       MESSENGER_APP_SECRET=
+       MESSENGER_VERIFY_TOKEN=
+       MONGO_URL=mongodb://localhost:27017/bot
+       PORT=3000```
+    `Note`:  DB NAME will be `bot`
+2. On package.json:
+   1. If using Express.js:
+    - "server-dev": "nodemon server.js",
+    - "server-start": "node server.js",
+
+    2. If using Bottender:
+     - "bot-dev": "bottender dev",
+     - "bot-start": "bottender start",
+
+3. Run it:
+    on console: $ npm run bot-dev -- --console
+    on server:  $ npm run server-dev
+
+4. Public domain & connect to webhook:
+    $ ngrok.exe http 5000
+    $ npx bottender messenger webhook set -w <URL_FROM_NGROK>/webhooks/messenger
