@@ -1,10 +1,9 @@
 const { router, text } = require("bottender/router");
-const { hello } = require("./helloEvent");
-const { main } = require("./mainEvent");
+const { Plugin: {HelloEvent, MainEvent} } = require("../lib");
 
 module.exports = async function App() {
   return router([
-    text(/^(hello|hi)$/i, hello),
-    text("*", main)
+    text(/^(hello|hi)$/i, HelloEvent),
+    text("*", MainEvent)
   ]);
 };
